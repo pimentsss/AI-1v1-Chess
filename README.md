@@ -1,18 +1,62 @@
-# Chess AI
+# Chess vs Stockfish
 
-Play against Stockfish from the terminal.
+Play chess against Stockfish, one of the strongest chess engines in the world, on a clickable board.
 
-## Setup
+## 1. Get the game
 
-1. Install Stockfish: Windows/macOS: download from https://stockfishchess.org/download/ and add it to your PATH (macOS: `brew install stockfish`; Linux: `sudo apt install stockfish`).
-2. In VS Code: open this folder, then in the terminal:
-   ```
-   python -m venv .venv
-   .venv\Scripts\activate      # Windows
-   source .venv/bin/activate   # macOS/Linux
-   pip install -r requirements.txt
-   ```
-3. Press F5 ("Play chess (window)") or run `python gui.py` (`python gui.py black` to play black).
-   Click a piece, then click its destination. `python play.py` is the terminal version.
+Install [Python 3.10+](https://www.python.org/downloads/) (on Windows, tick "Add python.exe to PATH" in the installer).
 
-Raise `THINK_SECONDS` in `play.py` for stronger play.
+Then download this project: click the green **Code** button on GitHub → **Download ZIP** and unzip it, or:
+
+```
+git clone https://github.com/pimentsss/chess.git
+cd chess
+```
+
+## 2. Install Stockfish
+
+| System | How |
+|---|---|
+| Ubuntu / Debian / Pop!_OS | `sudo apt install stockfish` |
+| Fedora | `sudo dnf install stockfish` |
+| macOS | `brew install stockfish` |
+| Windows | Download from https://stockfishchess.org/download/, unzip, and copy the `.exe` into this project folder. Rename it to `stockfish.exe`. |
+
+## 3. Install the Python libraries
+
+Open a terminal **in the project folder** (the one with `gui.py`).
+
+Windows:
+```
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+macOS / Linux:
+```
+python3 -m venv .venv
+. .venv/bin/activate
+pip install -r requirements.txt
+```
+
+(On Ubuntu/Pop!_OS, if the first command fails, run `sudo apt install python3-venv` first.)
+
+## 4. Play
+
+```
+python gui.py
+```
+
+Click a piece, then click where it should go. To play black: `python gui.py black`.
+Prefer the terminal? `python play.py`.
+
+Next time, you only need to activate the venv (step 3's second line) and run `python gui.py`.
+
+Want a stronger or faster opponent? Change `THINK_SECONDS` in `play.py`.
+
+## Troubleshooting
+
+- **"Stockfish not found"**: redo step 2. On Windows, check the file is named `stockfish.exe` and is next to `gui.py`.
+- **No window appears / `x11 not available`** on Linux: you're probably using VS Code installed as a Flatpak, which can't open game windows. Run the game from your normal system terminal instead.
+- **`No module named 'chess'` or `'pygame'`**: the venv isn't active. Run the activate line from step 3 again.

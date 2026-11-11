@@ -1,4 +1,5 @@
 """Play chess in the terminal against Stockfish (the strongest free engine)."""
+import os
 import shutil
 import sys
 
@@ -9,7 +10,9 @@ THINK_SECONDS = 2.0  # more time = stronger play
 
 
 def find_stockfish():
-    path = shutil.which("stockfish") or shutil.which("/usr/games/stockfish")
+    here = os.path.dirname(os.path.abspath(__file__))
+    # a Stockfish file dropped into the project folder wins, then the system install
+    path = shutil.which("stockfish", path=here) or shutil.which("stockfish") or shutil.which("/usr/games/stockfish")
     if path:
         return path
     if shutil.which("flatpak-spawn"):  # Flatpak VS Code can't see host programs; run the host's Stockfish
