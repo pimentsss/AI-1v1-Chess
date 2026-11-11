@@ -58,7 +58,7 @@ def draw(screen, board, pieces, human_white, selected):
 
 def main():
     human_white = "black" not in sys.argv[1:]
-    pygame.init()
+    pygame.display.init()  # display only: initializing audio can hang inside the Flatpak sandbox
     screen = pygame.display.set_mode((8 * SQ, 8 * SQ))
     pygame.display.set_caption("Chess vs Stockfish")
     pieces = load_pieces()
