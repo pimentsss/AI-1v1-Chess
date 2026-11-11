@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Play chess",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/play.py",
+      "console": "integratedTerminal"
+    }
+  ]
+}
