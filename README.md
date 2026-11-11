@@ -17,7 +17,7 @@ cd chess
 
 | System | How |
 |---|---|
-| Ubuntu / Debian / Pop!_OS | `sudo apt install stockfish` |
+| Ubuntu / Debian | `sudo apt install stockfish` |
 | Fedora | `sudo dnf install stockfish` |
 | macOS | `brew install stockfish` |
 | Windows | Download from https://stockfishchess.org/download/, unzip, and copy the `.exe` into this project folder. Rename it to `stockfish.exe`. |
