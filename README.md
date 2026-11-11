@@ -12,6 +12,7 @@ Play against Stockfish from the terminal.
    source .venv/bin/activate   # macOS/Linux
    pip install -r requirements.txt
    ```
-3. Press F5 ("Play chess") or run `python play.py`.
+3. Press F5 ("Play chess (window)") or run `python gui.py` (`python gui.py black` to play black).
+   Click a piece, then click its destination. `python play.py` is the terminal version.
 
 Raise `THINK_SECONDS` in `play.py` for stronger play.

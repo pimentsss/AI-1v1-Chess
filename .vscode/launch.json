@@ -2,7 +2,14 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Play chess",
+      "name": "Play chess (window)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/gui.py",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Play chess (terminal)",
       "type": "debugpy",
       "request": "launch",
       "program": "${workspaceFolder}/play.py",
