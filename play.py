@@ -10,9 +10,11 @@ THINK_SECONDS = 2.0  # more time = stronger play
 
 def find_stockfish():
     path = shutil.which("stockfish") or shutil.which("/usr/games/stockfish")
-    if not path:
-        sys.exit("Stockfish not found. Install it (see README) or put it on your PATH.")
-    return path
+    if path:
+        return path
+    if shutil.which("flatpak-spawn"):  # Flatpak VS Code can't see host programs; run the host's Stockfish
+        return ["flatpak-spawn", "--host", "/usr/games/stockfish"]
+    sys.exit("Stockfish not found. Install it (see README) or put it on your PATH.")
 
 
 def main():
